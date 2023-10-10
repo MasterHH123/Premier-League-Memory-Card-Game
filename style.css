@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    background-color: darkorchid;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    text-align: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 120px;
+    width: 300px;
+}
+
+#h{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 36px;
+    color: white;
+}
+
+#container{
+    /*
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    margin: auto;
+    margin-top: 10%;
+    border: 2px solid orange;
+    width: 640px;
+    height: 640px;
+    */
+
+
+    
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(120, 120, 120, 0.4);
+  border-radius: 7px;
+  margin-top: 150px;
+  
+}
+
+
+.card{
+    height: 100px;
+    width: 80px;
+    cursor: pointer;
+    position: relative;
+    margin: 5px; /*takes 5px from one card and 5 from the other making 10px space in total between cards*/
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    background-color:dodgerblue;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.front, .back{
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    position: absolute; 
+    border-radius: 5px;
+}
+
+.front{
+    transform: rotateY(180deg);
+}
+
+
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+
+
+
+
+
+
+
+
