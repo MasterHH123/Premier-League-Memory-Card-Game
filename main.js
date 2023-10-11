@@ -1,6 +1,7 @@
 const card = document.querySelectorAll('.card');
 let flippedCards = [];
-let match = 0;
+let matchedCards = 0;
+const totalCards = card.length;
 
 card.forEach(card => {
     card.addEventListener('click', () => {
@@ -15,11 +16,11 @@ card.forEach(card => {
             if(framework === framework2){
                 flippedCards.forEach(card => {
                     card.classList.add('guessed');
-                    match++;
+                    matchedCards ++;
                 });
                 flippedCards = [];
 
-                if(match === cards.length){
+                if(matchedCards === totalCards){
                     setTimeout(() => {
                         alert('Congratulations! You won.')
                         resetGame();
@@ -27,7 +28,7 @@ card.forEach(card => {
                 }
             }
             else{
-                setInterval(() => {
+                setTimeout(() => {
                     flippedCards.forEach(card => card.classList.remove('flipped'));
                     flippedCards = [];
                 }, 1000);
@@ -42,15 +43,16 @@ function resetGame() {
         card.classList.remove('flipped', 'guessed');
     });
     shuffleCards();
-    match = 0;
+    matchedCards = 0;
 }
 
 function shuffleCards() {
-    card.forEach(card => {
+    card.forEach(cards => {
         const randomPos = Math.floor(Math.random() * card.length);
-        card.style.order = randomPos;
+        cards.style.order = randomPos;
     });
 }
-
 shuffleCards();
+
+console.log(flippedCards);
 //Don't flip the card 180 but rather flip the card over so it should be blank and then show the image.
